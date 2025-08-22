@@ -169,23 +169,19 @@ const App: React.FC = () => {
               className="btn btn-start"
             >
               <PlayIcon />
-              Start
             </button>
           ) : (
             <button onClick={handlePause} className="btn btn-pause">
               <PauseIcon />
-              Pause
             </button>
           )}
 
           <button onClick={handleStop} className="btn btn-stop">
             <StopIcon />
-            Stop
           </button>
 
           <button onClick={handleReset} className="btn btn-reset">
             <ResetIcon />
-            Reset
           </button>
         </div>
 
@@ -196,38 +192,6 @@ const App: React.FC = () => {
           </button>
           <button onClick={() => addTime(5)} className="btn btn-small">
             <PlusIcon />5 min
-          </button>
-        </div>
-
-        {/* Ручной ввод времени */}
-        <div className="manual-input">
-          <div className="manual-title">Set Custom Time</div>
-          <div className="input-group">
-            <div className="input-field">
-              <input
-                type="number"
-                min="0"
-                max="999"
-                value={inputMinutes}
-                onChange={(e) => setInputMinutes(parseInt(e.target.value))}
-                placeholder="5"
-              />
-              <span className="input-label">min</span>
-            </div>
-            <div className="input-field">
-              <input
-                type="number"
-                min="0"
-                max="59"
-                value={inputSeconds}
-                onChange={(e) => setInputSeconds(parseInt(e.target.value))}
-                placeholder="0"
-              />
-              <span className="input-label">sec</span>
-            </div>
-          </div>
-          <button onClick={handleManualSet} className="btn btn-set">
-            Set Timer
           </button>
         </div>
       </div>
