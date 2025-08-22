@@ -47,8 +47,6 @@ const App: React.FC = () => {
     totalSeconds: 300,
   });
 
-  const [inputMinutes, setInputMinutes] = useState(5);
-  const [inputSeconds, setInputSeconds] = useState(0);
 
   // Таймер обратного отсчета
   useEffect(() => {
@@ -98,8 +96,8 @@ const App: React.FC = () => {
   }, []);
 
   const handleReset = useCallback(() => {
-    const minutes = inputMinutes || 0;
-    const seconds = inputSeconds || 0;
+    const minutes = 5;
+    const seconds = 0;
     const totalSeconds = minutes * 60 + seconds;
 
     setTimer({
@@ -108,7 +106,7 @@ const App: React.FC = () => {
       isRunning: false,
       totalSeconds,
     });
-  }, [inputMinutes, inputSeconds]);
+  }, [0, 5]);
 
   const addTime = useCallback((minutesToAdd: number) => {
     setTimer((prev) => {
@@ -122,18 +120,6 @@ const App: React.FC = () => {
     });
   }, []);
 
-  const handleManualSet = useCallback(() => {
-    const minutes = Math.max(0, inputMinutes || 0);
-    const seconds = Math.max(0, Math.min(59, inputSeconds || 0));
-    const totalSeconds = minutes * 60 + seconds;
-
-    setTimer({
-      minutes,
-      seconds,
-      isRunning: false,
-      totalSeconds,
-    });
-  }, [inputMinutes, inputSeconds]);
 
   const formatTime = (mins: number, secs: number): string => {
     return `${mins.toString().padStart(2, "0")}:${secs
